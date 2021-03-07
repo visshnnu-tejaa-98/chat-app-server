@@ -23,8 +23,6 @@ const removeUser = (id) => {
 
 console.log(users);
 const getUser = (id) => {
-	console.log(id);
-	console.log(users);
 	return users.find((user) => user.id === id);
 };
 
