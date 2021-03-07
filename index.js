@@ -9,16 +9,16 @@ const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
 const PORT = process.env.PORT || 8000;
 
-// middle wares
-app.use(router);
-app.use(cors());
-
 // initialized express server
 const app = express();
 // created server using http
 const server = http.createServer(app);
 // creating the instance of io
 const io = socketio(server);
+
+// middle wares
+app.use(router);
+app.use(cors());
 
 // io functions
 io.on('connection', (socket) => {
