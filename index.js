@@ -9,6 +9,10 @@ const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
 const PORT = process.env.PORT || 8000;
 
+// middle wares
+app.use(router);
+app.use(cors());
+
 // initialized express server
 const app = express();
 // created server using http
@@ -52,10 +56,6 @@ io.on('connection', (socket) => {
 		console.log('user disconnected!!!');
 	});
 });
-
-// middle wares
-app.use(router);
-app.use(cors());
 
 // server listining
 server.listen(PORT, () => console.log(`server started on port : ${PORT}`));
