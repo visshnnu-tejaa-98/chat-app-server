@@ -14,6 +14,15 @@ const server = http.createServer(app);
 // creating the instance of io
 const io = socketio(server);
 
+// io functions
+io.on('connection', (socket) => {
+	console.log('we have a new connection!!!');
+
+	socket.on('disconnect', () => {
+		console.log('user disconnected!!!');
+	});
+});
+
 // middle wares
 app.use(router);
 
