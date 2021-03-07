@@ -1,6 +1,7 @@
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
+const cors = require('cors');
 
 // locol imports
 const router = require('./router');
@@ -54,6 +55,7 @@ io.on('connection', (socket) => {
 
 // middle wares
 app.use(router);
+app.use(cors());
 
 // server listining
 server.listen(PORT, () => console.log(`server started on port : ${PORT}`));
